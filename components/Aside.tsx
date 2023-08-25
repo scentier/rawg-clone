@@ -1,8 +1,15 @@
-export const Aside = () => {
+import React from "react";
+
+const Aside = () => {
   return (
     <div className="hidden w-1/6 float-left md:block">
-      <p>Aside 1</p>
-      <p>Aside 2</p>
+      <ul>
+        <li>aside</li>
+        <li>aside</li>
+        <li>aside</li>
+      </ul>
     </div>
   );
 };
+
+export default Aside;

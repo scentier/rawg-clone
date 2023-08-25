@@ -1,4 +1,4 @@
-import { Aside } from "@/components/Aside";
+import Aside from "@/components/Aside";
 import Nav from "@/components/Nav";
 import "@/styles/globals.css";
 // import type { Metadata } from "next";
