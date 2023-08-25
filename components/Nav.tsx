@@ -9,7 +9,7 @@ const Nav = () => {
     <>
       <nav className="relative w-full">
         <div className="flex mb-16 w-full p-6 bg-gray-900 justify-between">
-          <Link href="/" className="flex gap-2">
+          <Link href="/" className="flex gap-2 w-1/5">
             <Image
               alt={metadata.title}
               src={logo}
@@ -18,7 +18,7 @@ const Nav = () => {
               className="object-contain mx-2"
             />
           </Link>
-          <div className="relative w-1/3 flex space-x-4">
+          <div className="relative w-4/6 flex space-x-4">
             <input
               type="search"
               className="relative h-8 rounded-full px-2 py-1 w-auto"
@@ -28,7 +28,7 @@ const Nav = () => {
               <BsSearch color="white" size={30} />
             </button>
           </div>
-          <div className="relative">Hamburger</div>
+          <div className="relative w-1/6">Hamburger</div>
         </div>
       </nav>
     </>
