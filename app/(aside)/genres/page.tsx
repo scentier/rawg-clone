@@ -1,5 +1,4 @@
-import apiClient from "@/services/api-client";
-import axios from "axios";
+"use client";
 import { useEffect, useState } from "react";
 
 type TGenre = {
@@ -16,40 +15,44 @@ type ParamProps = {
   apiKey: string;
 };
 
-const AllGenresPage = async () => {
-  // const [gameGenres, setGameGenres] = useState<TGenre[]>([]);
-  // const [error, setError] = useState("");
+const Genres = () => {
+  const [gameGenres, setGameGenres] = useState<TGenre[]>([]);
+  const [isLoading, setLoading] = useState(true);
+  const [fetchError, setFetchError] = useState("");
 
-  // const apiUrl = axios.create({
-  //   params: {
-  //     baseurl: "https://api.rawg.io/api/genres",
-  //     // key: process.env.RAWG_API_KEY,
-  //     key: "def905f9db934108b3b937ff5734f314",
-  //   },
-  // });
-
-  const apiBaseUrl = "https://api.rawg.io/api";
-  const res = await fetch(
-    apiBaseUrl + "/genres?key=" + process.env.RAWG_API_KEY,
-    { cache: "no-cache" }
-  );
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
-  const genres: GenresResponse = await res.json();
+  useEffect(() => {
+    fetch(
+      "https://api.rawg.io/api/genres?key=def905f9db934108b3b937ff5734f314",
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        cache: "no-store",
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setGameGenres(data.results);
+        setLoading(false);
+        console.log(data);
+      })
+      .catch((err) => {
+        setFetchError(err.name + ": " + err.message);
+        setLoading(false);
+      });
+  }, []);
 
   return (
-    <>
-      <h2>AllGenres</h2>
+    <div>
+      <p className="text-red-400">{fetchError}</p>
       <ul>
-        {genres.results.map((genre) => (
-          <li key={genre.id}>{genre.name}</li>
-        ))}
+        {isLoading
+          ? "Loading..."
+          : gameGenres.map((genre) => <li key={genre.id}>{genre.name}</li>)}
       </ul>
-    </>
+    </div>
   );
 };
 
-export default AllGenresPage;
+export default Genres;
