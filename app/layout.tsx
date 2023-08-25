@@ -16,7 +16,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
     <html lang="en">
       <body className={inter.className}>
         <Nav />
-        <div className="float-right">{children}</div>
+        <div className="float-right w-full md:w-5/6">{children}</div>
         <Aside />
       </body>
     </html>
