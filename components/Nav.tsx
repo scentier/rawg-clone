@@ -21,14 +21,14 @@ const Nav = () => {
           <div className="relative w-4/6 flex space-x-4">
             <input
               type="search"
-              className="relative h-8 rounded-full px-2 py-1 w-auto"
+              className="relative h-8 px-3 pb-2 pt-1 rounded-full w-full"
               placeholder="Search"
             />
             <button className="baseline mb-1">
               <BsSearch color="white" size={30} />
             </button>
           </div>
-          <div className="relative w-1/6">Hamburger</div>
+          <div className="relative w-1/6 px-4 text-white">Hamburger</div>
         </div>
       </nav>
     </>
