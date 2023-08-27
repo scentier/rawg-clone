@@ -9,10 +9,13 @@ class HttpService {
 
   get() {
     const controller = new AbortController();
-    const request = fetch(`${apiUrl.origin}${this.endpoint}${apiUrl.search}`, {
-      cache: "no-store",
-      signal: controller.signal,
-    });
+    const request = fetch(
+      `${apiUrl.origin}${apiUrl.pathname}${this.endpoint}${apiUrl.search}`,
+      {
+        cache: "no-store",
+        signal: controller.signal,
+      }
+    );
 
     return {
       request,

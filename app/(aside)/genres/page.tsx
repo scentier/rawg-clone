@@ -7,15 +7,6 @@ type TGenre = {
   name: string;
 };
 
-type GenresResponse = {
-  count: number;
-  results: TGenre[];
-};
-
-type ParamProps = {
-  apiKey: string;
-};
-
 const Genres = () => {
   const [gameGenres, setGameGenres] = useState<TGenre[]>([]);
   const [isLoading, setLoading] = useState(true);
@@ -23,13 +14,12 @@ const Genres = () => {
 
   useEffect(() => {
     const { request, cancel } = fetchApi("/genres").get();
-
     request
       .then((res) => res.json())
       .then((data) => {
         setGameGenres(data.results);
         setLoading(false);
-        console.log(data);
+        console.log("test");
       })
       .catch((err) => {
         setFetchError(err.name + ": " + err.message);
