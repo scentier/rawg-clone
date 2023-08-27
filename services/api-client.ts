@@ -1,10 +1,8 @@
-import axios, { AxiosError } from "axios";
+export default (tag: string) => {
+  const url = {
+    base: process.env.NEXT_PUBLIC_RAWG_API_URL,
+    apiKey: process.env.NEXT_PUBLIC_RAWG_API_KEY,
+  };
 
-export default axios.create({
-  params: {
-    baseurl: "https://api.rawg.io/api",
-    key: process.env.RAWG_API_KEY,
-  },
-});
-
-export { AxiosError };
+  return `${url.base}${tag}?key=${url.apiKey}`;
+};
