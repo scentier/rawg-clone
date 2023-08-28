@@ -16,7 +16,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
     <html lang="en">
       <body>
         <Nav />
-        <div className="container mx-auto">
+        <div className="container mx-auto mb-6">
           <main className="float-right w-full md:w-5/6">{children}</main>
           <Aside />
         </div>

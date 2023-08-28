@@ -19,7 +19,7 @@ const HomePage = () => {
         setLoading(false);
       })
       .catch((err) => {
-        if (err.name === "AbortErro") return;
+        if (err.name === "AbortError") return;
         setFetchError(err.message);
         setLoading(false);
       });
