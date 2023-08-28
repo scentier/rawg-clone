@@ -1,11 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
 import httpServices from "@/services/http-services";
-
-type TGames = {
-  id: number;
-  name: string;
-};
+import Link from "next/link";
+import { TGames } from "@/components/Types";
+import GridCard from "@/components/GridCard";
 
 const HomePage = () => {
   const [games, setGames] = useState<TGames[]>([]);
@@ -21,19 +19,19 @@ const HomePage = () => {
         setLoading(false);
       })
       .catch((err) => {
-        setFetchError(err.name + ": " + err.message);
+        if (err.name === "AbortErro") return;
+        setFetchError(err.message);
         setLoading(false);
       });
+
+    return cancel;
   }, []);
   return (
     <>
       <div>
         <p className="text-red-400">{fetchError}</p>
-        <ul>
-          {isLoading
-            ? "Loading..."
-            : games.map((game) => <li key={game.id}>{game.name}</li>)}
-        </ul>
+
+        {isLoading ? "Loading..." : <GridCard grids={games} />}
       </div>
     </>
   );
