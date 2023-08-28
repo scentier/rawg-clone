@@ -1,5 +1,5 @@
 "use client";
-import fetchApi from "@/services/http-services";
+import httpServices from "@/services/http-services";
 import { useEffect, useState } from "react";
 
 type TGenre = {
@@ -13,7 +13,7 @@ const Genres = () => {
   const [fetchError, setFetchError] = useState("");
 
   useEffect(() => {
-    const { request, cancel } = fetchApi("/genres").get();
+    const { request, cancel } = httpServices("/genres").getAll();
     request
       .then((res) => res.json())
       .then((data) => {

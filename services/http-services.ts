@@ -1,21 +1,22 @@
-import apiUrl from "./api-url";
-
 class HttpService {
   endpoint: string;
 
-  constructor(endpoint: string) {
-    this.endpoint = endpoint;
+  constructor(term: string) {
+    const url =
+      process.env.NEXT_PUBLIC_RAWG_API_URL +
+      term +
+      "?key=" +
+      process.env.NEXT_PUBLIC_RAWG_API_KEY;
+
+    this.endpoint = url;
   }
 
-  get() {
+  getAll() {
     const controller = new AbortController();
-    const request = fetch(
-      `${apiUrl.origin}${apiUrl.pathname}${this.endpoint}${apiUrl.search}`,
-      {
-        cache: "no-store",
-        signal: controller.signal,
-      }
-    );
+    const request = fetch(this.endpoint, {
+      cache: "no-store",
+      signal: controller.signal,
+    });
 
     return {
       request,
@@ -24,8 +25,4 @@ class HttpService {
   }
 }
 
-// export default new HttpService('/games');
-// solusinya
-const fetchApi = (arg: string) => new HttpService(arg);
-
-export default fetchApi;
+export default (arg: string) => new HttpService(arg);

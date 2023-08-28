@@ -15,12 +15,10 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <body>
-        <div className="flex flex-col-reverse">
-          <div className="container mx-auto">
-            <div className="float-right w-full md:w-5/6">{children}</div>
-            <Aside />
-          </div>
-          <Nav />
+        <Nav />
+        <div className="container mx-auto">
+          <main className="float-right w-full md:w-5/6">{children}</main>
+          <Aside />
         </div>
       </body>
     </html>
