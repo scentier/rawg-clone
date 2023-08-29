@@ -18,7 +18,10 @@ const GridCard = ({ grids }: TGrid) => {
   return (
     <div className="grid-cols-1 sm:grid md:grid-cols-3 ">
       {grids.map((game) => (
-        <div className="mx-3 mt-6 flex flex-col rounded-lg bg-white dark:bg-neutral-700 sm:shrink-0 sm:grow sm:basis-0 shadow-neutral-400">
+        <div
+          key={game.id}
+          className="mx-3 mt-6 flex flex-col rounded-lg dark:bg-neutral-700 sm:shrink-0 sm:grow sm:basis-0 shadow-neutral-400 bg-neutral-100"
+        >
           <Link href={`/games/${game.id}`}>
             <img
               src={imageCrop(game.background_image)}
