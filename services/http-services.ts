@@ -4,30 +4,30 @@ class HttpService {
   endpoint: string;
 
   constructor(term: string) {
+    // 3 cara construc url
+    // ---v1------------
     const url =
       process.env.NEXT_PUBLIC_RAWG_API_URL +
       term +
       "?key=" +
       process.env.NEXT_PUBLIC_RAWG_API_KEY;
 
-    console.log("httpservices.endpoint", url);
-
-    // ---------------
-    const urla = new URL(process.env.NEXT_PUBLIC_RAWG_API_URL!);
-    urla.search = new URLSearchParams({
+    // ---v2------------
+    const url2 = new URL(process.env.NEXT_PUBLIC_RAWG_API_URL!);
+    url2.search = new URLSearchParams({
       key: process.env.NEXT_PUBLIC_RAWG_API_KEY!,
     }).toString();
-    urla.pathname = urla.pathname.concat(term);
-    console.log("urla---> ", urla.href);
-    // ---------------
-    // apiUrl bermasalah karena import
-    // tiap rendre akant terjadi penambahan pathname
-    // /term/term/term/term?key=abc dan seterusnya
-    apiUrl.pathname = apiUrl.pathname.concat(term);
-    console.log("apiUrl:::->\n", apiUrl.toString());
+    url2.pathname = url2.pathname.concat(term);
+
+    // ---v3------------
+    const burl = new URL(process.env.NEXT_PUBLIC_RAWG_API_URL!);
+    const url3 = new URL(burl.pathname.concat("/address"), burl.href);
+    url3.search = new URLSearchParams({
+      key: process.env.NEXT_PUBLIC_RAWG_API_KEY!,
+    }).toString();
 
     // ---------------
-    this.endpoint = urla.href;
+    this.endpoint = url2.href;
   }
 
   getAll() {
