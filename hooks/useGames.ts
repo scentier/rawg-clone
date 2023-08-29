@@ -1,6 +1,6 @@
 import { TGames } from "@/components/Types";
 import httpServices from "@/services/http-services";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const useGames = () => {
   const [games, setGames] = useState<TGames[]>([]);
