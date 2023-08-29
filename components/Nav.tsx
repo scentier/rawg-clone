@@ -7,8 +7,8 @@ import { BsSearch } from "react-icons/bs";
 const Nav = () => {
   return (
     <>
-      <nav className="relative w-full">
-        <div className="flex mb-16 w-full p-6 bg-gray-900 justify-between">
+      <nav className="relative w-full bg-stone-300">
+        <div className="container mx-auto flex mb-16 w-full py-6  justify-between text-stone-500">
           <Link href="/" className="flex gap-2 w-1/5">
             <Image
               alt={metadata.title}
@@ -28,7 +28,7 @@ const Nav = () => {
               <BsSearch color="white" size={30} />
             </button>
           </div>
-          <div className="relative w-1/6 px-4 text-white">Hamburger</div>
+          <div className="relative w-1/6 px-4 pt-1">Hamburger</div>
         </div>
       </nav>
     </>
