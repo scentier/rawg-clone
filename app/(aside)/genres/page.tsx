@@ -1,42 +1,57 @@
-"use client";
-import httpServices from "@/services/http-services";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-type TGenre = {
+type Genre = {
   id: number;
   name: string;
+  slug: string;
+  image_background: string;
 };
 
-const Genres = () => {
-  const [gameGenres, setGameGenres] = useState<TGenre[]>([]);
-  const [isLoading, setLoading] = useState(true);
-  const [fetchError, setFetchError] = useState("");
+const getGenres = async (): Promise<Genre[]> => {
+  // const [loading, setLoading] = useState();
+  const res = await fetch(
+    " https://api.rawg.io/api/genres?key=" + process.env.RAWG_API_KEY,
+    { cache: "no-store" }
+  );
 
-  useEffect(() => {
-    const { request, cancel } = httpServices("/genres").getAll();
-    request
-      .then((res) => res.json())
-      .then((data) => {
-        setGameGenres(data.results);
-        setLoading(false);
-        console.log("test");
-      })
-      .catch((err) => {
-        setFetchError(err.name + ": " + err.message);
-        setLoading(false);
-      });
-  }, []);
+  if (!res.ok) {
+    throw new Error("failed to fetch");
+  }
 
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+
+  const data = await res.json();
+
+  return data.results;
+};
+
+const GenresPage = async () => {
+  const genres = await getGenres();
   return (
-    <div>
-      <p className="text-red-400">{fetchError}</p>
+    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
+      {genres.map((genre) => (
+        <div className="m-2" key={genre.id}>
+          <h1>{genre.name}</h1>
+          <div className="aspect-video relative">
+            <img
+              className="object-cover rounded-md"
+              src={genre.image_background.replace(
+                "media.rawg.io/media/",
+                "media.rawg.io/media/crop/600/400/"
+              )}
+              alt={genre.name}
+            />
+          </div>
+        </div>
+      ))}
+      {/* <p className="text-red-400">{fetchError}</p>
       <ul>
         {isLoading
           ? "Loading..."
           : gameGenres.map((genre) => <li key={genre.id}>{genre.name}</li>)}
-      </ul>
+      </ul> */}
     </div>
   );
 };
 
-export default Genres;
+export default GenresPage;
