@@ -1,5 +1,3 @@
-import apiUrl from "./api-url";
-
 class HttpService {
   endpoint: string;
 
