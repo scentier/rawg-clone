@@ -1,11 +1,10 @@
 import Link from "next/link";
-import React from "react";
-// import { TGames } from "./Types";
 import PlatformList from "./PlatformIcons";
 
-type TGrid = {
+// interface di component, type di types.d.ts
+interface IGrid {
   grids: TGames[];
-};
+}
 
 const imageCrop = (imgurl: string) => {
   return imgurl.replace(
@@ -14,7 +13,7 @@ const imageCrop = (imgurl: string) => {
   );
 };
 
-const GridCard = ({ grids }: TGrid) => {
+const GridCard = ({ grids }: IGrid) => {
   return (
     <div className="grid-cols-1 sm:grid md:grid-cols-3 ">
       {grids.map((game) => (
