@@ -23,6 +23,7 @@ class HttpFetch {
 
     if (!res.ok) throw new Error("failed to fetch");
 
+    // bug: console.log before and after resolve work. but immediately render to component
     await new Promise((resolve) => setTimeout(resolve, 2000));
 
     const data = await res.json();
