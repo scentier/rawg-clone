@@ -1,4 +1,3 @@
-import { TPlatform } from "./Types";
 import {
   FaWindows,
   FaPlaystation,

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { TGames } from "./Types";
+// import { TGames } from "./Types";
 import PlatformList from "./PlatformIcons";
 
 type TGrid = {
