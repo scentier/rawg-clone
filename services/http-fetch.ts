@@ -14,11 +14,8 @@ class HttpFetch {
   }
 
   async getData<T>() {
-    const controller = new AbortController();
-
     const res = await fetch(this.endpoint, {
       cache: "no-store",
-      signal: controller.signal,
     });
 
     if (!res.ok) throw new Error("failed to fetch");
@@ -28,10 +25,7 @@ class HttpFetch {
 
     const data = await res.json();
 
-    return {
-      data,
-      cancel: () => controller.abort(),
-    };
+    return data;
   }
 }
 
