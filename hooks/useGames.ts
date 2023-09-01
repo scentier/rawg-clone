@@ -1,4 +1,3 @@
-import { TGames } from "@/components/Types";
 import httpServices from "@/services/http-services";
 import { useEffect, useState } from "react";
 

@@ -1,5 +1,7 @@
-const AllPlatformsPage = () => {
-  return <div>AllPlatforms</div>;
+import PPlatforms from "./PPlatforms";
+
+const Platforms = () => {
+  return <PPlatforms />;
 };
 
-export default AllPlatformsPage;
+export default Platforms;

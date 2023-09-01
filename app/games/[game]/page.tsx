@@ -1,5 +1,7 @@
-const GamePage = () => {
-  return <div>Game Page</div>;
+import PGame from "./PGame";
+
+const Game = () => {
+  return <PGame />;
 };
 
-export default GamePage;
+export default Game;

@@ -1,5 +1,7 @@
-const GenrePage = () => {
-  return <div>Genre</div>;
+import PGenre from "./PGenre";
+
+const Genre = () => {
+  return <PGenre />;
 };
 
-export default GenrePage;
+export default Genre;

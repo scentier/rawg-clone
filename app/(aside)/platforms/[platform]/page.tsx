@@ -1,5 +1,7 @@
-const PlatformPage = () => {
-  return <div>Platform</div>;
+import PPlatform from "./PPlatform";
+
+const Platform = () => {
+  return <PPlatform />;
 };
 
-export default PlatformPage;
+export default Platform;
