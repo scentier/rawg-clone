@@ -1,16 +1,11 @@
-"use client";
 import GridCard from "@/components/GridCard";
-import useGames from "@/hooks/useGames";
+import getGames from "@/services/get-games";
 
-const PHome = () => {
-  const { games, isLoading, fetchError } = useGames();
+const PHome = async () => {
+  const games = await getGames();
   return (
     <>
-      <div>
-        <p className="text-red-400">{fetchError}</p>
-
-        {isLoading ? "Loading..." : <GridCard grids={games} />}
-      </div>
+      <GridCard grids={games} />
     </>
   );
 };
