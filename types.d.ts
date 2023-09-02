@@ -5,6 +5,11 @@ type TGenre = {
   image_background: string;
 };
 
+type TGame = {
+  id: number;
+  name: string;
+};
+
 type TGames = {
   id: number;
   name: string;
