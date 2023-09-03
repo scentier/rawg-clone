@@ -2,7 +2,7 @@ import Link from "next/link";
 import PlatformList from "./PlatformIcons";
 
 // interface di component, type di types.d.ts
-interface IGrid {
+interface Props {
   grids: TGames[];
 }
 
@@ -13,7 +13,7 @@ const imageCrop = (imgurl: string) => {
   );
 };
 
-const GridCard = ({ grids }: IGrid) => {
+const GridCard = ({ grids }: Props) => {
   return (
     <div className="grid-cols-1 sm:grid md:grid-cols-3 ">
       {grids.map((game) => (
