@@ -1,4 +1,4 @@
-import GridCard from "@/components/GridCard";
+import GridCard from "@/components/GridGames";
 import getGames from "@/services/get-games";
 
 const PHome = async () => {
