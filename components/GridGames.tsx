@@ -1,17 +1,11 @@
 import Link from "next/link";
 import PlatformList from "./PlatformIcons";
+import mediumImg from "@/utils/medium-img";
 
 // interface di component, type di types.d.ts
 interface Props {
   grids: TGames[];
 }
-
-const imageCrop = (imgurl: string) => {
-  return imgurl.replace(
-    "media.rawg.io/media/",
-    "media.rawg.io/media/crop/600/400/"
-  );
-};
 
 const GridCard = ({ grids }: Props) => {
   return (
@@ -23,7 +17,7 @@ const GridCard = ({ grids }: Props) => {
         >
           <Link href={`/games/${game.id}/${game.slug}`}>
             <img
-              src={imageCrop(game.background_image)}
+              src={mediumImg(game.background_image)}
               alt={game.name}
               className="rounded-t-lg"
             />
