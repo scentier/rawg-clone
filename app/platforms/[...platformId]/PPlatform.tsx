@@ -1,5 +1,5 @@
 const PPlatform = () => {
-  return <div>PPlatform</div>;
+  return <div>PPlatform Detail</div>;
 };
 
 export default PPlatform;

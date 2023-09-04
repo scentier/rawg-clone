@@ -1,5 +1,5 @@
 const PPlatforms = () => {
-  return <div>PPlatforms</div>;
+  return <div>All PPlatforms</div>;
 };
 
 export default PPlatforms;
