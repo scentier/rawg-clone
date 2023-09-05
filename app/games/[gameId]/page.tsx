@@ -5,7 +5,7 @@ interface Props {
 }
 
 const Game = ({ params: { gameId } }: Props) => {
-  return <PGame param={gameId[0]} />;
+  return <PGame param={gameId} />;
 };
 
 export default Game;

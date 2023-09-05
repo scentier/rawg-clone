@@ -15,7 +15,7 @@ const GridCard = ({ grids }: Props) => {
           key={game.id}
           className="mx-3 mt-6 flex flex-col rounded-lg dark:bg-neutral-700 sm:shrink-0 sm:grow sm:basis-0 shadow-neutral-400 bg-neutral-100"
         >
-          <Link href={`/games/${game.id}/${game.slug}`}>
+          <Link href={`/games/${game.slug}`}>
             <img
               src={mediumImg(game.background_image)}
               alt={game.name}
