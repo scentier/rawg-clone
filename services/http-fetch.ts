@@ -22,7 +22,7 @@ class HttpFetch {
 
     // bug: console.log before and after resolve work. but immediately render to component
     // hasil: load seluruh page setelah 2 ditik bukan render component
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    // await new Promise((resolve) => setTimeout(resolve, 2000));
 
     const data = await res.json();
 
