@@ -1,3 +1,5 @@
+import GenreList from "@/components/GenreList";
+import Metascore from "@/components/Metascore";
 import PlatformList from "@/components/PlatformIcons";
 import getGame from "@/services/get-game";
 import { Suspense } from "react";
@@ -18,14 +20,25 @@ const PGame = async ({ param }: Props) => {
             className="text-base space-y-2 justify-between"
             dangerouslySetInnerHTML={{ __html: data.description }}
           />
-          <div>
-            <p>Platform</p>
-            <PlatformList platforms={data.parent_platforms} />
+          <div className="flex flex-row justify-between">
+            <div className="py-2 space-y-1">
+              <p className="p-1">Platform</p>
+              <PlatformList platforms={data.parent_platforms} />
+            </div>
+            <div className="py-2 space-y-1">
+              <p>Metascrore</p>
+              <Metascore metacritic={data.metacritic} />
+            </div>
           </div>
-          <div>Metascrore</div>
-          <div>metacritic</div>
-          <div>genres</div>
-          <div>genres</div>
+          <div className="flex flex-row justify-between">
+            <div className="py-2 space-y-1">
+              <p>Genres</p>
+              <GenreList genres={data.genres} />
+            </div>
+            <div className="py-2 space-y-1">
+              <p>Release date</p>
+            </div>
+          </div>
         </article>
       </Suspense>
     </>
