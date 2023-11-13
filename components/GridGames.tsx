@@ -1,6 +1,6 @@
 import Link from "next/link";
 import PlatformList from "./PlatformIcons";
-import mediumImg from "@/utils/medium-img";
+import mediumImg from "@/lib/medium-img";
 
 // interface di component, type di types.d.ts
 interface Props {

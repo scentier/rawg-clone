@@ -1,19 +1,11 @@
-type TGenre = {
+export type TGenre = {
   id: number;
   name: string;
   slug: string;
   image_background: string;
 };
 
-type TDeveloper = {
-  id: number;
-  name: string;
-  slug: string;
-  games_count: number;
-  image_background: string;
-};
-
-type TPublisher = {
+export type TDeveloper = {
   id: number;
   name: string;
   slug: string;
@@ -21,7 +13,15 @@ type TPublisher = {
   image_background: string;
 };
 
-type TGame = {
+export type TPublisher = {
+  id: number;
+  name: string;
+  slug: string;
+  games_count: number;
+  image_background: string;
+};
+
+export type TGame = {
   id: number;
   name: string;
   description: string;
@@ -33,7 +33,7 @@ type TGame = {
   publishers: TPublisher[];
 };
 
-type TGames = {
+export type TGames = {
   id: number;
   name: string;
   slug: string;
@@ -41,7 +41,7 @@ type TGames = {
   parent_platforms: { platform: TPlatform }[];
 };
 
-type TPlatform = {
+export type TPlatform = {
   id: number;
   name: string;
   slug: string;

@@ -1,3 +1,4 @@
+import { TGames } from "@/lib/types";
 import httpFetch from "./http-fetch";
 
 export default async () => {

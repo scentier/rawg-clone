@@ -1,3 +1,4 @@
+import { TGenre } from "@/lib/types";
 import httpFetch from "./http-fetch";
 
 export default async () => {

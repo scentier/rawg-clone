@@ -1,6 +1,8 @@
 import GenreList from "@/components/GenreList";
 import Metascore from "@/components/Metascore";
 import PlatformList from "@/components/PlatformIcons";
+import ReleaseData from "@/components/ReleaseData";
+import { TGame } from "@/lib/types";
 import getGame from "@/services/get-game";
 import { Suspense } from "react";
 
@@ -37,6 +39,7 @@ const PGame = async ({ param }: Props) => {
             </div>
             <div className="py-2 space-y-1">
               <p>Release date</p>
+              <ReleaseData released={data.released} />
             </div>
           </div>
         </article>

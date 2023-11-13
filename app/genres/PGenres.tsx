@@ -1,5 +1,5 @@
 import getGenres from "@/services/get-genres";
-import mediumImg from "@/utils/medium-img";
+import mediumImg from "@/lib/medium-img";
 import Link from "next/link";
 
 const PGenres = async () => {

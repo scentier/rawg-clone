@@ -11,6 +11,7 @@ import { SiAtari, SiCommodore, SiNintendo, SiSega } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
 import { IconType } from "react-icons";
 import { ReactElement } from "react";
+import { TPlatform } from "@/lib/types";
 
 type TProps = {
   platforms: { platform: TPlatform }[];
